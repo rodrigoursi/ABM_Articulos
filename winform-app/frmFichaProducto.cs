@@ -51,9 +51,7 @@ namespace App
             }
             catch (Exception ex)
             {
-                //pcbImagenProducto.Load("https://gesisarg.com/sistema-gestion/res/archivos/imagen_articulo_por_defecto.jpg");
-                MessageBox.Show(ex.Message);
-                //throw ex;
+                pcbImagenProducto.Load("https://gesisarg.com/sistema-gestion/res/archivos/imagen_articulo_por_defecto.jpg");
             }
 
         }

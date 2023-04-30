@@ -117,4 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnEditarProducto.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAExSURBVEhL7ZU9asNAEIUFwbhJTmCI9YtAKXUPg92kcboQ
+        Q7qcQL5Aco5gCD6Ei7RpVLuRi9wgMRjne84YRHAKWdsY/GDYeavdb3ZXSOu5UhiGoyAI5nEcd63LnQz+
+        TXwSb3med+xRexl8TUx93+/jl86K7FdO+05b0SbOitTgE+wF7aJehFzH9fo7uqH+wD3ysfl9kcL8aDeh
+        if6Dq8VqJzqudSs48SgfRdGtPEdyJ09+T3wxbijfSGf4QZ3hB3W6cCADwYA+yJPXv1AVn8hrEfKNxeSS
+        yYXlbuGs+obJmyRJevLAnpzBJSbr71elaXplXTs5gUsArokZ8ZFl2aV2Qn78L7cuLukMyIsuayuyIjbA
+        S714G3a8AE0BbolngLruCr0Te9xeAGcqop1Yl0N53g83DrKkr6H8tAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnNuevoProducto.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAGhSURBVEhLzZXJLkRBFIYvFgQRbC0tTGFpSEz73rIxLUx7
+        w4Y38giGRHgKMQQvYMsK/3e6bnff61bdaiT8yZfUqap7TvU5p6qT/6IxsSb2Hatu7kfqEIfiQXx4YO1A
+        sLcpTYtngZMzsS2GRJeD8Y5gjT3s5ZsoVcSruBVzTJRoXrCXb5aYKNOWOBF9ZsWpX1wLgkwxUaQWMVAd
+        fksEuRNPorAmFJQTtJlVrBkRyvWCoCZ0WkatgsgXZvnFetmec3FfHdY1Loi8YZZfl46Q6C58jZrltCmY
+        HDTLr5gAtDC+VsxyOhZMtptVFzk/FfxseHGkNmvsaVS3wBcXsKY0QL76MQHyRe8R+MoU+jdTNCzwlUnR
+        hGBy3Sy/YgLsCnxlipy2KW9LSDFtyjoX7ouOxLuYNatY5Dt00RYFp98zK6dO8ShuRC8TTYqngguGj3w3
+        1sTr+SauBB/EqvGxm2QipGXBRvLI21Im0sLJo59rxJNL0ckn/c71p/3SPxzGdAsFZQ9pKT15Xlw6Lgun
+        w0kRrFFQb85jRU/zR09AHDIeEX+tJPkEIqVvWEMhNeQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnEliminarProducto.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAEuSURBVEhLYxgFgxc8to+PfWaXrAnl4gVPHBKKntqniUC5
+        hMETx4Skx/YJfx/bJ758ZJ+kAxXGCoCGtz9xSPz/xD7hIlGWPHWItwYZDtYExED2C1w+ARreB1MHVuuQ
+        sBsqhRv8Z2BgBCqehKIRi0+e2Cd2oKhxSHj1yC5BFyqNHxCyhCLDYQBkCdDQqSgGAYMLaNh8FDFyDIcB
+        bD5BxhQZDgO4LKGK4TCAHuZgC4hIwkQBbIbDMMWWANN5P4qBwGABWrgUWQyInxOb41EAPIdCMSzMcSXh
+        h45x2lCthAEuw6HSOPMJUZY8tU+0eeyQ+A+uEUdqgeSThCloluyBSuMHwJI0FVzYEUiKyD4BOur6A9s0
+        SagUYfDUITGZmHQO8UlixXPXGDGo0CgYVICBAQAGdFlfWVVdfgAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>
