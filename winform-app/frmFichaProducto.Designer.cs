@@ -153,6 +153,7 @@
             this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 13;
             this.label1.Text = "label1";
+            this.label1.Visible = false;
             // 
             // textBox1
             // 
@@ -160,6 +161,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(821, 22);
             this.textBox1.TabIndex = 14;
+            this.textBox1.Visible = false;
             // 
             // frmFichaProducto
             // 
