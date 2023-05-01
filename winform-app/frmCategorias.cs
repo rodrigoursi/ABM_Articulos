@@ -18,12 +18,11 @@ namespace App
             InitializeComponent();
         }
 
-        private void frmCategorias_Load(object sender, EventArgs e)
+        public void frmCategorias_Load(object sender, EventArgs e)
         {
             CategoriasNegocio negocio = new CategoriasNegocio();
             dgvCategorias.DataSource = negocio.listar();
         }
-
 
     }
 }

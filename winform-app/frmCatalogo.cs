@@ -22,12 +22,14 @@ namespace App
 
         private void frmCatalogo_Load(object sender, EventArgs e)
         {
+            ActualizarListaArticulos();
+        }
+        //METODO PUBLICO PARA ACTUALIZAR EL DATAGRIDVIEW
+        public void ActualizarListaArticulos()
+        {
             ArticuloNegocio negocio = new ArticuloNegocio();
             listaArticulos = negocio.listar();
             dgvArticulos.DataSource = listaArticulos;
-
-
-
         }
 
         private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -36,6 +38,20 @@ namespace App
             frmFichaProducto fichaProducto = new frmFichaProducto(producto);
             fichaProducto.ShowDialog();
         }
+
+        private void btnEditarProducto_Click(object sender, EventArgs e)
+        {
+            if (dgvArticulos.SelectedCells.Count == 0)
+            {
+                MessageBox.Show("Seleccione una fila o una celda para editar");
+                return;
+            }
+            Articulo art = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            //MessageBox.Show("Id: " + art.id + " Codigo: " + art.codigo + " Nombre: " + art.nombre + " Descripcion:" + art.descripcion);
+            frmEditarProducto editarProducto = new frmEditarProducto(art);
+            editarProducto.ShowDialog();
+        }
+        
 
     }
 }
