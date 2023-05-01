@@ -51,7 +51,38 @@ namespace App
             frmEditarProducto editarProducto = new frmEditarProducto(art);
             editarProducto.ShowDialog();
         }
-        
 
+        private void txbTextoBuscarProducto_Click(object sender, EventArgs e)
+        {
+            string consultaAux = "";
+
+            switch (cmbBuscarPor.Text)
+            {
+                case "Codigo":
+                    consultaAux = "Codigo";
+                    break;
+                case "Nombre":
+                    consultaAux = "Nombre";
+                    break;
+                case "Descripcion":
+                    consultaAux = "A.Descripcion";
+                    break;
+                case "Marca":
+                    consultaAux = "M.Descripcion";
+                    break;
+                case "Categoria":
+                    consultaAux = "C.Descripcion";
+                    break;
+                default:
+                    consultaAux = "";
+                    break;
+            }
+
+            string buscarPor = " AND " + consultaAux + " LIKE '%" + txbDatoBuscarProducto.Text + "%';";
+            MessageBox.Show("Consulta: " + buscarPor);
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            listaArticulos = negocio.listar(buscarPor);
+            dgvArticulos.DataSource = listaArticulos;
+        }
     }
 }
