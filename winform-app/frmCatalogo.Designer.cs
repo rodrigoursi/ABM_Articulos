@@ -47,7 +47,7 @@
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Location = new System.Drawing.Point(17, 81);
-            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.RowHeadersWidth = 51;
             this.dgvArticulos.RowTemplate.Height = 24;
@@ -63,9 +63,9 @@
             this.grbBuscarProducto.Controls.Add(this.cmbBuscarPor);
             this.grbBuscarProducto.Controls.Add(this.lblBuscarPor);
             this.grbBuscarProducto.Location = new System.Drawing.Point(17, 11);
-            this.grbBuscarProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbBuscarProducto.Margin = new System.Windows.Forms.Padding(2);
             this.grbBuscarProducto.Name = "grbBuscarProducto";
-            this.grbBuscarProducto.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbBuscarProducto.Padding = new System.Windows.Forms.Padding(2);
             this.grbBuscarProducto.Size = new System.Drawing.Size(879, 55);
             this.grbBuscarProducto.TabIndex = 1;
             this.grbBuscarProducto.TabStop = false;
@@ -74,7 +74,7 @@
             // txbBuscarProducto
             // 
             this.txbBuscarProducto.Location = new System.Drawing.Point(646, 16);
-            this.txbBuscarProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbBuscarProducto.Margin = new System.Windows.Forms.Padding(2);
             this.txbBuscarProducto.Name = "txbBuscarProducto";
             this.txbBuscarProducto.Size = new System.Drawing.Size(167, 31);
             this.txbBuscarProducto.TabIndex = 4;
@@ -85,7 +85,7 @@
             // txbDatoBuscarProducto
             // 
             this.txbDatoBuscarProducto.Location = new System.Drawing.Point(398, 24);
-            this.txbDatoBuscarProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbDatoBuscarProducto.Margin = new System.Windows.Forms.Padding(2);
             this.txbDatoBuscarProducto.Name = "txbDatoBuscarProducto";
             this.txbDatoBuscarProducto.Size = new System.Drawing.Size(182, 20);
             this.txbDatoBuscarProducto.TabIndex = 3;
@@ -109,7 +109,7 @@
             "Marca",
             "Categoria"});
             this.cmbBuscarPor.Location = new System.Drawing.Point(75, 24);
-            this.cmbBuscarPor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbBuscarPor.Margin = new System.Windows.Forms.Padding(2);
             this.cmbBuscarPor.Name = "cmbBuscarPor";
             this.cmbBuscarPor.Size = new System.Drawing.Size(182, 21);
             this.cmbBuscarPor.TabIndex = 1;
@@ -130,7 +130,7 @@
             this.btnEditarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarProducto.Image")));
             this.btnEditarProducto.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEditarProducto.Location = new System.Drawing.Point(22, 558);
-            this.btnEditarProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditarProducto.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditarProducto.Name = "btnEditarProducto";
             this.btnEditarProducto.Size = new System.Drawing.Size(71, 49);
             this.btnEditarProducto.TabIndex = 2;
@@ -145,13 +145,14 @@
             this.btnNuevoProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProducto.Image")));
             this.btnNuevoProducto.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnNuevoProducto.Location = new System.Drawing.Point(100, 558);
-            this.btnNuevoProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNuevoProducto.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevoProducto.Name = "btnNuevoProducto";
             this.btnNuevoProducto.Size = new System.Drawing.Size(71, 49);
             this.btnNuevoProducto.TabIndex = 3;
             this.btnNuevoProducto.Text = "Nuevo";
             this.btnNuevoProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNuevoProducto.UseVisualStyleBackColor = true;
+            this.btnNuevoProducto.Click += new System.EventHandler(this.btnNuevoProducto_Click);
             // 
             // btnEliminarProducto
             // 
@@ -159,7 +160,7 @@
             this.btnEliminarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarProducto.Image")));
             this.btnEliminarProducto.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEliminarProducto.Location = new System.Drawing.Point(178, 558);
-            this.btnEliminarProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminarProducto.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
             this.btnEliminarProducto.Size = new System.Drawing.Size(71, 49);
             this.btnEliminarProducto.TabIndex = 4;
@@ -178,7 +179,7 @@
             this.Controls.Add(this.btnEditarProducto);
             this.Controls.Add(this.grbBuscarProducto);
             this.Controls.Add(this.dgvArticulos);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCatalogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catalogo";

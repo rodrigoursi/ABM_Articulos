@@ -88,7 +88,37 @@ namespace negocio
             return resultado;
         }
 
+        public int agregar(Articulo articulo)
+        {
+            int resultado = 0;
+            AccesoDatos datos = new AccesoDatos();
+            string sql = "insert into ARTICULOS (codigo, nombre, descripcion, IdMarca, IdCategoria, precio)" +
+                " values (@codigo, @nombre, @descripcion, @idMarca, @idCategoria, @precio)";
+            try
+            {
+                datos.setearConsulta(sql);
+                datos.setearParametro("@codigo", articulo.codigo);
+                datos.setearParametro("@nombre", articulo.nombre);
+                datos.setearParametro("@descripcion", articulo.descripcion);
+                datos.setearParametro("@precio", articulo.precio);
+                datos.setearParametro("@idMarca", articulo.marca.id);
+                datos.setearParametro("@idCategoria", articulo.categoria.id);
+                resultado = datos.ejecutarUpdate();
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show("Error " + ex.Message);
+                return resultado;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            return resultado;
+        }
+
+        //METODO ELIMINAR
         public int eliminar(int id)
         {
             int resultado = 0;

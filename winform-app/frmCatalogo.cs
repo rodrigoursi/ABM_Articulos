@@ -107,5 +107,11 @@ namespace App
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnNuevoProducto_Click(object sender, EventArgs e)
+        {
+            AgregarArticulo AgregarProducto = new AgregarArticulo();
+            AgregarProducto.ShowDialog();
+        }
     }
 }
