@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -83,6 +84,28 @@ namespace App
             ArticuloNegocio negocio = new ArticuloNegocio();
             listaArticulos = negocio.listar(buscarPor);
             dgvArticulos.DataSource = listaArticulos;
+        }
+
+        private void btnEliminarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvArticulos.SelectedRows.Count > 0)
+                {
+                    DialogResult respuesta = MessageBox.Show("estas seguro que deseas eliminar el articulo", "Eliminado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (respuesta == DialogResult.No) return;
+                    DataGridViewRow row = dgvArticulos.SelectedRows[0];
+                    string valor = row.Cells["id"].Value.ToString();
+                    ArticuloNegocio Negocio = new ArticuloNegocio();
+                    Negocio.eliminar(int.Parse(valor));
+                    ActualizarListaArticulos();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -88,7 +89,27 @@ namespace negocio
         }
 
 
+        public int eliminar(int id)
+        {
+            int resultado = 0;
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("delete from ARTICULOS where Id=@id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarUpdate();
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            return resultado;
+        }
 
 
 
