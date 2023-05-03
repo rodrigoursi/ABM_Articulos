@@ -32,12 +32,12 @@ namespace App
             listaArticulos = negocio.listar();
             dgvArticulos.DataSource = listaArticulos;
         }
-
-        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvArticulos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Articulo producto = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             frmFichaProducto fichaProducto = new frmFichaProducto(producto);
             fichaProducto.ShowDialog();
+
         }
 
         private void btnEditarProducto_Click(object sender, EventArgs e)
@@ -118,5 +118,6 @@ namespace App
             AgregarArticulo AgregarProducto = new AgregarArticulo();
             AgregarProducto.ShowDialog();
         }
+        
     }
 }
