@@ -97,7 +97,12 @@ namespace App
                     DataGridViewRow row = dgvArticulos.SelectedRows[0];
                     string valor = row.Cells["id"].Value.ToString();
                     ArticuloNegocio Negocio = new ArticuloNegocio();
-                    Negocio.eliminar(int.Parse(valor));
+                    string mensaje = "El producto no pudo ser eliminado.";
+                    if (Negocio.eliminar(int.Parse(valor)) > 0)
+                    {
+                        mensaje = "Producto eliminado exitosamente.";
+                    }
+                    MessageBox.Show(mensaje, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ActualizarListaArticulos();
                 }
             }

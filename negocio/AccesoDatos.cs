@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace negocio
 {
@@ -12,6 +13,8 @@ namespace negocio
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;
+        int filasAfectadas = 0;
+        SqlTransaction transaccion;
         public SqlDataReader Lector
         {
             get { return lector; }
@@ -19,8 +22,8 @@ namespace negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
-            //conexion = new SqlConnection("server=.\\UTNLABORATORIO; database=CATALOGO_P3_DB; User Id=sa; Password=imprimir");
+            //conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
+            conexion = new SqlConnection("server=.\\UTNLABORATORIO; database=CATALOGO_P3_DB; User Id=sa; Password=imprimir");
             //conexion = new SqlConnection("server=.; database=CATALOGO_P3_DB; integrated security=true");
             comando = new SqlCommand();
         }
@@ -55,16 +58,24 @@ namespace negocio
             try
             {
                 conexion.Open();
-                return comando.ExecuteNonQuery();
+                transaccion = conexion.BeginTransaction();
+                comando.Transaction = transaccion;
+                filasAfectadas = comando.ExecuteNonQuery();
+                if (filasAfectadas == 1) transaccion.Commit();
+                else transaccion.Rollback();
             }
             catch (Exception ex)
             {
+                transaccion.Rollback();
                 throw ex;
             }
             finally
             {
+                transaccion.Dispose();
+                transaccion=null;
                 conexion.Close();
             }
+            return filasAfectadas;
         }
 
         public void cerrarConexion()
