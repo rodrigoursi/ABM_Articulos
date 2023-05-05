@@ -79,8 +79,7 @@ namespace App
                     break;
             }
 
-            string buscarPor = " AND " + consultaAux + " LIKE '%" + txbDatoBuscarProducto.Text + "%';";
-            MessageBox.Show("Consulta: " + buscarPor);
+            string buscarPor = " WHERE " + consultaAux + " LIKE '%" + txbDatoBuscarProducto.Text + "%';";
             ArticuloNegocio negocio = new ArticuloNegocio();
             listaArticulos = negocio.listar(buscarPor);
             dgvArticulos.DataSource = listaArticulos;

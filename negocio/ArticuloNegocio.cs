@@ -17,7 +17,8 @@ namespace negocio
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
 
-            string consulta = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Id IdMarca, M.Descripcion Marca, C.Id IdCategoria, C.Descripcion Categoria, Precio FROM ARTICULOS A, CATEGORIAS C, MARCAS M WHERE A.IdCategoria = C.Id AND A.IdMarca = M.Id" + busqueda;
+            string consulta = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Id IdMarca, M.Descripcion Marca, C.Id IdCategoria, C.Descripcion Categoria, Precio" +
+                " FROM ARTICULOS AS A INNER JOIN MARCAS AS M ON M.id = IdMarca INNER JOIN CATEGORIAS AS C ON C.Id = IdCategoria" + busqueda;
 
             try
             {
