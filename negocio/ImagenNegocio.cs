@@ -80,7 +80,6 @@ namespace negocio
                 datos.setearConsulta(sql);
                 datos.setearParametro("@Producto", imagen.IdArticulo);
                 datos.setearParametro("@Url", imagen.ImagenUrl);
-                MessageBox.Show(imagen.ImagenUrl +" / " + imagen.IdArticulo);
                 resultado = datos.ejecutarUpdate();
             }
             catch (Exception ex)
