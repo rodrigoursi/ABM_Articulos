@@ -48,7 +48,6 @@ namespace App
                 return;
             }
             Articulo producto = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            //MessageBox.Show("Id: " + art.id + " Codigo: " + art.codigo + " Nombre: " + art.nombre + " Descripcion:" + art.descripcion);
             frmFichaProducto fichaProducto = new frmFichaProducto(producto, 0); //MODO = 0 para Editar
             fichaProducto.ShowDialog();
         }

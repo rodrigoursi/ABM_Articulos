@@ -44,6 +44,55 @@ namespace negocio
             {
                 datos.cerrarConexion();
             }
+        
+        }
+
+        public int eliminar(string url)
+        {
+            int resultado = 0;
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("delete from IMAGENES where ImagenUrl= @Url");
+                datos.setearParametro("@Url", url);
+                resultado = datos.ejecutarUpdate();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            return resultado;
+        }
+
+        public int agregar(int idProducto, string imagenUrl)
+        {
+            int resultado = 0;
+            AccesoDatos datos = new AccesoDatos();
+            string sql = "insert into IMAGENES (IdArticulo, ImagenUrl)" +
+                " values (@Producto, @Url)";
+            try
+            {
+                datos.setearConsulta(sql);
+                datos.setearParametro("@Producto", idProducto);
+                datos.setearParametro("@Url", imagenUrl);
+                resultado = datos.ejecutarUpdate();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error " + ex.Message);
+                return resultado;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            return resultado;
         }
     }
 }

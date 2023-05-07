@@ -17,17 +17,19 @@ namespace App
         private List<ImagenProductos> listaImagenes;
         private int indiceImagenActual;
 
+        private List<ImagenProductos> imagenesEnCache = new List<ImagenProductos>();
+
         private Articulo productoAux;
         private int modo;
-        
-        
+
+
         public frmFichaProducto(Articulo producto, int mode = 0) // MODO=1 para VER, MODO=0 para Editar, MODO=2 para NUEVO
         {
             InitializeComponent();
             this.productoAux = producto;
             this.modo = mode;
 
- 
+
             // Cargar Marcas en el ComboBox
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             List<Marca> marcas = marcaNegocio.listar();
@@ -43,7 +45,7 @@ namespace App
             cmbCategoriaProducto.ValueMember = "id";
 
 
-            if (modo == 1) //MODO NUEVO
+            if (modo == 2) //MODO NUEVO
             {
                 txbNombreProducto.Text = "";
                 txbCodigoProducto.Text = "";
@@ -52,10 +54,12 @@ namespace App
                 cmbCategoriaProducto.Text = "";
                 txbDescripcionProducto.Text = "";
 
+                btnAgregarImagenProducto.Visible = true;
+                btnEliminarImagenProducto.Visible = true;
+
             }
             if (modo == 0 || modo == 1)  // = 0 MODO EDITAR
             {
-                
                 txbNombreProducto.Text = productoAux.nombre;
                 txbCodigoProducto.Text = productoAux.codigo;
                 txbPrecioProducto.Text = productoAux.precio.ToString();
@@ -68,31 +72,38 @@ namespace App
                 cmbCategoriaProducto.SelectedValue = productoAux.categoria.id;
 
                 txbDescripcionProducto.Text = productoAux.descripcion;
-                }
-                
+
+
                 if (modo == 1) //MODO VER (sin editar)
                 {
                     txbNombreProducto.Enabled = false;
-                    txbCodigoProducto.Enabled=false;
+                    txbCodigoProducto.Enabled = false;
                     txbPrecioProducto.Enabled = false;
                     cmbMarcaProducto.Enabled = false;
                     cmbCategoriaProducto.Enabled = false;
                     txbDescripcionProducto.Enabled = false;
                     btnGuardar.Visible = false;
                 }
+
+                if (modo == 0)
+                {
+                    btnAgregarImagenProducto.Visible = true;
+                    btnEliminarImagenProducto.Visible = true;
+                }
+            }
         }
 
         private void frmFichaProducto_Load(object sender, EventArgs e)
         {
             try
-            {   
+            {
                 ImagenNegocio negocio = new ImagenNegocio();
                 listaImagenes = negocio.listar(productoAux.id);
 
                 indiceImagenActual = 0;
 
                 pcbImagenProducto.Load((String)listaImagenes[indiceImagenActual].ImagenUrl);
-                
+
             }
             catch (Exception ex)
             {
@@ -115,6 +126,18 @@ namespace App
                 articuloModificado.descripcion = txbDescripcionProducto.Text;
                 articuloModificado.precio = decimal.Parse(txbPrecioProducto.Text);
 
+                //foreach (ImagenProductos i in listaImagenes)
+                //{
+                //    ImagenNegocio negocio1 = new ImagenNegocio();
+                //    ImagenProductos imagen = new ImagenProductos();
+
+                //    imagen.IdArticulo = imagenesEnCache[i].IdArticulo;
+                //    imagen.ImagenUrl = imagenesEnCache[1].ImagenUrl;
+
+                //    negocio1.agregar(imagen.IdArticulo, imagen.ImagenUrl);
+
+                //}
+
                 // Validar Marca y Categoria
                 if (cmbMarcaProducto.SelectedIndex < 0)
                 {
@@ -136,7 +159,7 @@ namespace App
                     articuloModificado.id = productoAux.id; // Se matiene el mismo ID
                     resultado = negocio.editar(articuloModificado);
                 }
-                if(modo == 2)
+                if (modo == 2)
                 {
                     resultado = negocio.agregar(articuloModificado);
                 }
@@ -168,36 +191,95 @@ namespace App
 
         private void btnImageLeft_Click(object sender, EventArgs e)
         {
-            if ((indiceImagenActual + 1) > 1)
+            try
             {
-                indiceImagenActual--;
-                pcbImagenProducto.Load((String)listaImagenes[indiceImagenActual].ImagenUrl);
-                btnImageRight.Enabled = true;
+                if ((indiceImagenActual + 1) > 1)
+                {
+                    indiceImagenActual--;
+                    pcbImagenProducto.Load((String)listaImagenes[indiceImagenActual].ImagenUrl);
+                    btnImageRight.Enabled = true;
+                }
+                else
+                {
+                    btnImageLeft.Enabled = false;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                btnImageLeft.Enabled = false;  
+                pcbImagenProducto.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEaYTaC-q-QWUu2g7QgVvRKkJkqXjXtjBU2w&usqp=CAU");
             }
-
         }
 
         private void btnImageRight_Click(object sender, EventArgs e)
         {
-            if ((indiceImagenActual + 1) < listaImagenes.Count)
+            try
             {
-                indiceImagenActual++;
-                pcbImagenProducto.Load((String)listaImagenes[indiceImagenActual].ImagenUrl);
-                btnImageLeft.Enabled = true;
+                if ((indiceImagenActual + 1) < listaImagenes.Count)
+                {
+                    indiceImagenActual++;
+                    pcbImagenProducto.Load((String)listaImagenes[indiceImagenActual].ImagenUrl);
+                    btnImageLeft.Enabled = true;
+                }
+                else
+                {
+                    btnImageRight.Enabled = false;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                btnImageRight.Enabled = false;
+                pcbImagenProducto.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEaYTaC-q-QWUu2g7QgVvRKkJkqXjXtjBU2w&usqp=CAU");
             }
         }
 
         private void btnBackOfCatalogo_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAgregarImagenProducto_Click(object sender, EventArgs e)
+        {
+            lblAgregarImagenProduccto.Visible = true;
+            txbAgregarImagenProducto.Visible = true;
+            btnConfirmarAgregarImagenProducto.Visible = true;
+        }
+
+        private void btnEliminarImagenProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("estas seguro que deseas eliminar la imagen", "Eliminada", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.No) return;
+
+                string valor = pcbImagenProducto.ImageLocation.ToString();
+
+                ImagenNegocio Negocio = new ImagenNegocio();
+                if (Negocio.eliminar(valor) < 1)
+                {
+                    string mensaje = "La imagen no pudo ser eliminada.";
+                    MessageBox.Show(mensaje, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnConfirmarAgregarImagenProducto_Click(object sender, EventArgs e)
+        {
+            ImagenProductos imagenAux = new ImagenProductos();
+
+
+            imagenAux.ImagenUrl = txbAgregarImagenProducto.Text;
+            imagenAux.IdArticulo = productoAux.id;
+
+            pcbImagenProducto.Load((String)imagenAux.ImagenUrl);
+
+            imagenesEnCache.Add(imagenAux);
+
+            txbAgregarImagenProducto.Text = "";
         }
     }
 }

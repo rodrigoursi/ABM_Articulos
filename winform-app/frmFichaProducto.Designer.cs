@@ -47,6 +47,11 @@
             this.btnImageRight = new System.Windows.Forms.Button();
             this.btnImageLeft = new System.Windows.Forms.Button();
             this.btnBackOfCatalogo = new System.Windows.Forms.Button();
+            this.txbAgregarImagenProducto = new System.Windows.Forms.TextBox();
+            this.btnEliminarImagenProducto = new System.Windows.Forms.Button();
+            this.btnAgregarImagenProducto = new System.Windows.Forms.Button();
+            this.btnConfirmarAgregarImagenProducto = new System.Windows.Forms.Button();
+            this.lblAgregarImagenProduccto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbImagenProducto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,7 +191,7 @@
             // 
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnGuardar.Location = new System.Drawing.Point(179, 667);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(93, 70);
             this.btnGuardar.TabIndex = 8;
@@ -240,11 +245,67 @@
             this.btnBackOfCatalogo.UseVisualStyleBackColor = true;
             this.btnBackOfCatalogo.Click += new System.EventHandler(this.btnBackOfCatalogo_Click);
             // 
+            // txbAgregarImagenProducto
+            // 
+            this.txbAgregarImagenProducto.Location = new System.Drawing.Point(675, 451);
+            this.txbAgregarImagenProducto.Name = "txbAgregarImagenProducto";
+            this.txbAgregarImagenProducto.Size = new System.Drawing.Size(453, 22);
+            this.txbAgregarImagenProducto.TabIndex = 14;
+            this.txbAgregarImagenProducto.Visible = false;
+            // 
+            // btnEliminarImagenProducto
+            // 
+            this.btnEliminarImagenProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarImagenProducto.Image")));
+            this.btnEliminarImagenProducto.Location = new System.Drawing.Point(675, 380);
+            this.btnEliminarImagenProducto.Name = "btnEliminarImagenProducto";
+            this.btnEliminarImagenProducto.Size = new System.Drawing.Size(40, 36);
+            this.btnEliminarImagenProducto.TabIndex = 15;
+            this.btnEliminarImagenProducto.UseVisualStyleBackColor = true;
+            this.btnEliminarImagenProducto.Visible = false;
+            this.btnEliminarImagenProducto.Click += new System.EventHandler(this.btnEliminarImagenProducto_Click);
+            // 
+            // btnAgregarImagenProducto
+            // 
+            this.btnAgregarImagenProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarImagenProducto.Image")));
+            this.btnAgregarImagenProducto.Location = new System.Drawing.Point(1088, 380);
+            this.btnAgregarImagenProducto.Name = "btnAgregarImagenProducto";
+            this.btnAgregarImagenProducto.Size = new System.Drawing.Size(40, 36);
+            this.btnAgregarImagenProducto.TabIndex = 16;
+            this.btnAgregarImagenProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarImagenProducto.Visible = false;
+            this.btnAgregarImagenProducto.Click += new System.EventHandler(this.btnAgregarImagenProducto_Click);
+            // 
+            // btnConfirmarAgregarImagenProducto
+            // 
+            this.btnConfirmarAgregarImagenProducto.Location = new System.Drawing.Point(678, 480);
+            this.btnConfirmarAgregarImagenProducto.Name = "btnConfirmarAgregarImagenProducto";
+            this.btnConfirmarAgregarImagenProducto.Size = new System.Drawing.Size(111, 37);
+            this.btnConfirmarAgregarImagenProducto.TabIndex = 17;
+            this.btnConfirmarAgregarImagenProducto.Text = "Agregar";
+            this.btnConfirmarAgregarImagenProducto.UseVisualStyleBackColor = true;
+            this.btnConfirmarAgregarImagenProducto.Visible = false;
+            this.btnConfirmarAgregarImagenProducto.Click += new System.EventHandler(this.btnConfirmarAgregarImagenProducto_Click);
+            // 
+            // lblAgregarImagenProduccto
+            // 
+            this.lblAgregarImagenProduccto.AutoSize = true;
+            this.lblAgregarImagenProduccto.Location = new System.Drawing.Point(675, 429);
+            this.lblAgregarImagenProduccto.Name = "lblAgregarImagenProduccto";
+            this.lblAgregarImagenProduccto.Size = new System.Drawing.Size(180, 16);
+            this.lblAgregarImagenProduccto.TabIndex = 18;
+            this.lblAgregarImagenProduccto.Text = "Ingrese la URL de la Imagen:";
+            this.lblAgregarImagenProduccto.Visible = false;
+            // 
             // frmFichaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1207, 769);
+            this.Controls.Add(this.lblAgregarImagenProduccto);
+            this.Controls.Add(this.btnConfirmarAgregarImagenProducto);
+            this.Controls.Add(this.btnAgregarImagenProducto);
+            this.Controls.Add(this.btnEliminarImagenProducto);
+            this.Controls.Add(this.txbAgregarImagenProducto);
             this.Controls.Add(this.btnBackOfCatalogo);
             this.Controls.Add(this.btnImageLeft);
             this.Controls.Add(this.btnImageRight);
@@ -294,5 +355,10 @@
         private System.Windows.Forms.Button btnImageRight;
         private System.Windows.Forms.Button btnImageLeft;
         private System.Windows.Forms.Button btnBackOfCatalogo;
+        private System.Windows.Forms.TextBox txbAgregarImagenProducto;
+        private System.Windows.Forms.Button btnEliminarImagenProducto;
+        private System.Windows.Forms.Button btnAgregarImagenProducto;
+        private System.Windows.Forms.Button btnConfirmarAgregarImagenProducto;
+        private System.Windows.Forms.Label lblAgregarImagenProduccto;
     }
 }
