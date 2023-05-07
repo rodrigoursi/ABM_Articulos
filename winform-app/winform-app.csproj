@@ -35,6 +35,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,17 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgregarArticulo.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AgregarArticulo.Designer.cs">
-      <DependentUpon>AgregarArticulo.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditarProducto.cs">
+    <Compile Include="frmFichaCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditarProducto.Designer.cs">
-      <DependentUpon>frmEditarProducto.cs</DependentUpon>
+    <Compile Include="frmFichaCategoria.Designer.cs">
+      <DependentUpon>frmFichaCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFichaMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFichaMarca.Designer.cs">
+      <DependentUpon>frmFichaMarca.cs</DependentUpon>
     </Compile>
     <Compile Include="frmFichaProducto.cs">
       <SubType>Form</SubType>
@@ -90,8 +99,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmEditarProducto.resx">
-      <DependentUpon>frmEditarProducto.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFichaCategoria.resx">
+      <DependentUpon>frmFichaCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFichaMarca.resx">
+      <DependentUpon>frmFichaMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFichaProducto.resx">
       <DependentUpon>frmFichaProducto.cs</DependentUpon>

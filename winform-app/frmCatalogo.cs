@@ -35,7 +35,7 @@ namespace App
         private void dgvArticulos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Articulo producto = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            frmFichaProducto fichaProducto = new frmFichaProducto(producto);
+            frmFichaProducto fichaProducto = new frmFichaProducto(producto, 1);  //MODO = 1 para VER
             fichaProducto.ShowDialog();
 
         }
@@ -44,13 +44,46 @@ namespace App
         {
             if (dgvArticulos.SelectedCells.Count == 0)
             {
-                MessageBox.Show("Seleccione una fila o una celda para editar");
+                MessageBox.Show("Seleccione una fila para editar");
                 return;
             }
-            Articulo art = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            Articulo producto = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             //MessageBox.Show("Id: " + art.id + " Codigo: " + art.codigo + " Nombre: " + art.nombre + " Descripcion:" + art.descripcion);
-            frmEditarProducto editarProducto = new frmEditarProducto(art);
-            editarProducto.ShowDialog();
+            frmFichaProducto fichaProducto = new frmFichaProducto(producto, 0); //MODO = 0 para Editar
+            fichaProducto.ShowDialog();
+        }
+        private void btnEliminarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvArticulos.SelectedRows.Count > 0)
+                {
+                    DialogResult respuesta = MessageBox.Show("estas seguro que deseas eliminar el articulo", "Eliminado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (respuesta == DialogResult.No) return;
+                    DataGridViewRow row = dgvArticulos.SelectedRows[0];
+                    string valor = row.Cells["id"].Value.ToString();
+                    ArticuloNegocio Negocio = new ArticuloNegocio();
+                    string mensaje = "El producto no pudo ser eliminado.";
+                    if (Negocio.eliminar(int.Parse(valor)) > 0)
+                    {
+                        mensaje = "Producto eliminado exitosamente.";
+                    }
+                    MessageBox.Show(mensaje, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualizarListaArticulos();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnNuevoProducto_Click(object sender, EventArgs e)
+        {
+            Articulo producto = new Articulo();
+            frmFichaProducto fichaProducto = new frmFichaProducto(producto, 2); //MODO = 2 para NUEVO
+            fichaProducto.ShowDialog();
         }
 
         private void txbTextoBuscarProducto_Click(object sender, EventArgs e)
@@ -85,38 +118,9 @@ namespace App
             dgvArticulos.DataSource = listaArticulos;
         }
 
-        private void btnEliminarProducto_Click(object sender, EventArgs e)
+        private void btnBackOfCatalogo_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (dgvArticulos.SelectedRows.Count > 0)
-                {
-                    DialogResult respuesta = MessageBox.Show("estas seguro que deseas eliminar el articulo", "Eliminado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (respuesta == DialogResult.No) return;
-                    DataGridViewRow row = dgvArticulos.SelectedRows[0];
-                    string valor = row.Cells["id"].Value.ToString();
-                    ArticuloNegocio Negocio = new ArticuloNegocio();
-                    string mensaje = "El producto no pudo ser eliminado.";
-                    if (Negocio.eliminar(int.Parse(valor)) > 0)
-                    {
-                        mensaje = "Producto eliminado exitosamente.";
-                    }
-                    MessageBox.Show(mensaje, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ActualizarListaArticulos();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
+            this.Close();
         }
-
-        private void btnNuevoProducto_Click(object sender, EventArgs e)
-        {
-            AgregarArticulo AgregarProducto = new AgregarArticulo();
-            AgregarProducto.ShowDialog();
-        }
-        
     }
 }

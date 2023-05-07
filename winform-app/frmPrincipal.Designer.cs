@@ -56,7 +56,7 @@ namespace winform_app
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1207, 28);
-            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // inicioToolStripMenuItem
@@ -94,21 +94,21 @@ namespace winform_app
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.productosToolStripMenuItem.Text = "&Productos";
             this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // marcasToolStripMenuItem
             // 
             this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
-            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.marcasToolStripMenuItem.Text = "&Marcas";
             this.marcasToolStripMenuItem.Click += new System.EventHandler(this.marcasToolStripMenuItem_Click);
             // 
             // categoríasToolStripMenuItem
             // 
             this.categoríasToolStripMenuItem.Name = "categoríasToolStripMenuItem";
-            this.categoríasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.categoríasToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.categoríasToolStripMenuItem.Text = "&Categorías";
             this.categoríasToolStripMenuItem.Click += new System.EventHandler(this.categoríasToolStripMenuItem_Click);
             // 
@@ -124,7 +124,7 @@ namespace winform_app
             this.btnCataologo.Location = new System.Drawing.Point(115, 123);
             this.btnCataologo.Name = "btnCataologo";
             this.btnCataologo.Size = new System.Drawing.Size(175, 146);
-            this.btnCataologo.TabIndex = 3;
+            this.btnCataologo.TabIndex = 1;
             this.btnCataologo.Text = "Productos";
             this.btnCataologo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCataologo.UseVisualStyleBackColor = true;

@@ -10,7 +10,7 @@ namespace negocio
 {
     public class ImagenNegocio
     {
-        public List<ImagenProductos> listar()
+        public List<ImagenProductos> listar(int idProducto)
         {
             List<ImagenProductos> lista = new List<ImagenProductos>();
             AccesoDatos datos = new AccesoDatos();
@@ -22,13 +22,15 @@ namespace negocio
 
                 while (datos.Lector.Read())
                 {
-                    ImagenProductos imagen = new ImagenProductos();
-                    imagen.Id = (int)datos.Lector["Id"];
-                    imagen.IdArticulo = (int)datos.Lector["IdArticulo"];
-                    imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                    if ((int)datos.Lector["IdArticulo"] == idProducto)
+                    {
+                        ImagenProductos imagen = new ImagenProductos();
+                        imagen.Id = (int)datos.Lector["Id"];
+                        imagen.IdArticulo = (int)datos.Lector["IdArticulo"];
+                        imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
 
-
-                    lista.Add(imagen);
+                        lista.Add(imagen);
+                    }
                 }
 
                 return lista;
