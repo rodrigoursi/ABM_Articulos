@@ -69,7 +69,7 @@ namespace negocio
             return resultado;
         }
 
-        public int agregar(int idProducto, string imagenUrl)
+        public int agregar(ImagenProductos imagen)
         {
             int resultado = 0;
             AccesoDatos datos = new AccesoDatos();
@@ -78,14 +78,15 @@ namespace negocio
             try
             {
                 datos.setearConsulta(sql);
-                datos.setearParametro("@Producto", idProducto);
-                datos.setearParametro("@Url", imagenUrl);
+                datos.setearParametro("@Producto", imagen.IdArticulo);
+                datos.setearParametro("@Url", imagen.ImagenUrl);
+                MessageBox.Show(imagen.ImagenUrl +" / " + imagen.IdArticulo);
                 resultado = datos.ejecutarUpdate();
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show("Error " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
                 return resultado;
             }
             finally

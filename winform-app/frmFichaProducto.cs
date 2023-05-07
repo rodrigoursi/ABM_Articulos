@@ -126,17 +126,6 @@ namespace App
                 articuloModificado.descripcion = txbDescripcionProducto.Text;
                 articuloModificado.precio = decimal.Parse(txbPrecioProducto.Text);
 
-                //foreach (ImagenProductos i in listaImagenes)
-                //{
-                //    ImagenNegocio negocio1 = new ImagenNegocio();
-                //    ImagenProductos imagen = new ImagenProductos();
-
-                //    imagen.IdArticulo = imagenesEnCache[i].IdArticulo;
-                //    imagen.ImagenUrl = imagenesEnCache[1].ImagenUrl;
-
-                //    negocio1.agregar(imagen.IdArticulo, imagen.ImagenUrl);
-
-                //}
 
                 // Validar Marca y Categoria
                 if (cmbMarcaProducto.SelectedIndex < 0)
@@ -157,10 +146,20 @@ namespace App
                 if (modo == 0)
                 {
                     articuloModificado.id = productoAux.id; // Se matiene el mismo ID
+                    foreach (ImagenProductos imagen in imagenesEnCache) // Carga las imagenes en memoria en la BD
+                    {
+                        ImagenNegocio negocio1 = new ImagenNegocio();
+                        negocio1.agregar(imagen);
+                    }
                     resultado = negocio.editar(articuloModificado);
                 }
                 if (modo == 2)
                 {
+                    foreach (ImagenProductos imagen in imagenesEnCache) // Carga las imagenes en memoria en la BD
+                    {
+                        ImagenNegocio negocio1 = new ImagenNegocio();
+                        negocio1.agregar(imagen);
+                    }
                     resultado = negocio.agregar(articuloModificado);
                 }
 
@@ -274,10 +273,15 @@ namespace App
 
             imagenAux.ImagenUrl = txbAgregarImagenProducto.Text;
             imagenAux.IdArticulo = productoAux.id;
-
-            pcbImagenProducto.Load((String)imagenAux.ImagenUrl);
-
-            imagenesEnCache.Add(imagenAux);
+            try
+            {
+                pcbImagenProducto.Load((String)imagenAux.ImagenUrl);
+                imagenesEnCache.Add(imagenAux);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al cargar la imagen: " + ex.Message);
+            }
 
             txbAgregarImagenProducto.Text = "";
         }

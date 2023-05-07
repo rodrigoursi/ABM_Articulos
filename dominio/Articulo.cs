@@ -15,5 +15,10 @@ namespace dominio
         public decimal precio { get; set; }
         public Marca marca { get; set; }
         public Categoria categoria { get; set; }
+
+        public Articulo()
+        {
+            id = -1;
+        }
     }
 }
